@@ -68,7 +68,7 @@ const ActiveCarts = () => {
 
       <Container fluid className='tablets'>
         {
-          dummyData.filter(data => data.name.toLowerCase().includes(searchTerm.toLowerCase()))
+          dummyData.filter(data => data.info.toLowerCase().includes(searchTerm.toLowerCase()))
             .map((data, index) => {
               return (
                 <Container fluid className='tablets-list shadow m-2 p-2 py-3' key={index}>
@@ -81,7 +81,7 @@ const ActiveCarts = () => {
           )
         }
         {activeData &&
-          activeData.filter(data => data.name.toLowerCase().includes(searchTerm.toLowerCase()))
+          activeData.filter(data => data.info.toLowerCase().includes(searchTerm.toLowerCase()))
             .map((data, index) => {
               return (
                 <Container fluid className='tablets-list shadow m-2 p-2 py-3' key={index}>
