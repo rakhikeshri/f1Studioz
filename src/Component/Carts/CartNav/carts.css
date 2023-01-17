@@ -18,12 +18,20 @@
 }
 
 @media screen and (max-width: 414px) {
+    .cartLink{
+        margin: auto;
+    }
     .cartLink a{
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         text-decoration: none;
     }
+
     
     .search{
-        width: 30%;
+        width: 100%;
+        margin-bottom: .5rem;
+    }
+    .cartLinks{
+            flex-direction: column-reverse;
     }
 }

@@ -33,7 +33,6 @@
     border: 1px solid rgb(170, 170, 170) !important;
     width: 300px !important ;
 }
-
 @media screen and (max-width: 414px) {
     .secondBox{
         flex-direction: column;
@@ -49,9 +48,21 @@
    }
    .lastPageBtn{
     padding: .6rem 0 !important;
-    font-size: .9rem !important;
+    font-size: .7rem !important;
    }
    .firstBox{
+    width: 100% !important;
+   }
+   .firstBox>div{
     width: 100%;
+   }
+   .total{
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0;
+   }
+   .placeOrder{
+        padding: .6 !important;
+        font-size: .9rem !important;
    }
 }

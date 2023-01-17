@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import './confirmPage.css'
 import { useNavigate } from 'react-router-dom'
 import { Container, Button, Form, Row, Col } from 'react-bootstrap'
@@ -11,6 +11,7 @@ import { AiFillDelete} from 'react-icons/ai'
 
 const ConfirmPage = () => {
   const { info, name, shipPoint, createdBy, windcode } = useContext(AppContext)
+  const [count, setCount]= useState(1)
 
   const handleSubmit = () => {
 
@@ -25,6 +26,18 @@ const ConfirmPage = () => {
     Navigate('/')
   }
  
+  const increment =()=>{
+    setCount(count+1)
+  }
+
+  const decrement =()=>{
+    if(count < 2){
+      setCount(1)
+    }
+    else{
+      setCount(count-1)
+    }
+  }
   const Navigate = useNavigate()
   return (
     <>
@@ -43,9 +56,9 @@ const ConfirmPage = () => {
           </div>
           <div className='count'>
             <div >
-              <Button variant='light' bg-light className='m-3 '>-</Button>
-              <Button variant='outline-dark' className='m-3 px-4 '>1</Button>
-              <Button variant='light' bg-light className='m-3 '>+</Button>
+              <Button variant='light' bg-light className='m-3' onClick={decrement}>-</Button>
+              <Button variant='outline-dark' className='m-3 px-4 '>{count}</Button>
+              <Button variant='light' bg-light className='m-3' onClick={increment}>+</Button>
             </div>
             <div className='d-flex justify-content-between w-50 firstBox'>
             <div className='text-center'style={{color:"green"}} >
@@ -122,15 +135,15 @@ const ConfirmPage = () => {
         <Container className='my-3 d-flex justify-content-between shadow' >
           <div>
             <small>
-              1 ITEM
+              {count} ITEM
             </small>
-            <h3>$5061.11</h3>
+            <h3 className='total'>$5061.11</h3>
           </div>
           <div className='my-3'>
-          <Button variant='light' bg-light className='mx-3' style={{ color: 'brown', border: '2px solid brown' }} onClick={()=>Navigate('/createDoorPage')} >
-            Add MORE+
+          <Button variant='light' bg-light className='placeOrder' style={{ color: 'brown', border: '2px solid brown',marginRight:".8rem" }} onClick={()=>Navigate('/createDoorPage')} >
+            ADD MORE+
           </Button>
-          <Button style={{ color: 'white', border: 'none', backgroundColor: 'brown' }} onClick={handleSubmit}>
+          <Button className=' placeOrder' style={{ color: 'white', border: '2px solid brown', backgroundColor: 'brown' }} onClick={handleSubmit}>
             PLACE ORDER
           </Button>
           </div>
