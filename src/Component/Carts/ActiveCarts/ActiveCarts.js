@@ -46,6 +46,7 @@ const ActiveCarts = () => {
                 })
             }
             {
+              activeData &&
               activeData.filter(data => data.info.toLowerCase().includes(searchTerm.toLowerCase()))
                 .map((data, index) => {
                   return (
@@ -79,7 +80,7 @@ const ActiveCarts = () => {
             }
           )
         }
-        {
+        {activeData &&
           activeData.filter(data => data.name.toLowerCase().includes(searchTerm.toLowerCase()))
             .map((data, index) => {
               return (
